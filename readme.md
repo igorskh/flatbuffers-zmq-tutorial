@@ -1,4 +1,4 @@
-# FlatBuffers + ZeroMQ Sample Sample
+# FlatBuffers + ZeroMQ Sample
 
 This repository is based on [FlatBuffers official Tutorial](https://google.github.io/flatbuffers/flatbuffers_guide_tutorial.html).
 
