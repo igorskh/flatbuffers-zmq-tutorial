@@ -34,19 +34,15 @@ go get gopkg.in/zeromq/goczmq.v4
 
 Go tutorial for ZMQ: [https://zeromq.org/languages/go/](https://zeromq.org/languages/go/).
 
-## Create Go project
-For this repository the following path is used - `$GOPATH/src/github.com/igorskh/flatbuffers-zmq-tutorial`. Generally any path in `$GOPATH/src` is fine.
-```bash
-cd $GOPATH/src
-```
-
-In the project folder create two subfolders for writer and reader:
-```bash
-mkdir reader
-mkdir wirte
-```
-
 ## Usage 
+### Get the code
+Clone the repository to your `GOPATH` to `$GOPATH/src/github.com/igorskh/flatbuffers-zmq-tutorial`
+```bash
+mkdir -p $GOPATH/src/github.com/igorskh
+cd $GOPATH/src/github.com/igorskh
+git clone https://github.com/igorskh/flatbuffers-zmq-tutorial.git
+```
+
 ### File Read/Write
 Write to file (default path: `data/data.dat`):
 ```bash
@@ -91,4 +87,12 @@ Values:  5
 [0 1 2 3 4]
 Calculating Mean
 Result:  2
+```
+
+## Develop
+For this repository the following path is used - `$GOPATH/src/github.com/igorskh/flatbuffers-zmq-tutorial`. Generally any path in `$GOPATH/src` is fine, just make sure the path to generated flatbuffer models are correct.
+
+If you change the schema, generate Go code:
+```bash
+flatc --go schema.fbs
 ```
