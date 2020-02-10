@@ -28,8 +28,11 @@ Follow the [instructions](https://zeromq.org/download/#linux).
 
 For Ubuntu:
 ```bash
-sudo apt apt-get install libzmq3-dev
+sudo apt apt-get install libzmq3-dev libczmq4 libczmq4-dev
+go get gopkg.in/zeromq/goczmq.v4
 ```
+
+Go tutorial for ZMQ: [https://zeromq.org/languages/go/](https://zeromq.org/languages/go/).
 
 ## Create Go project
 For this repository the following path is used - `$GOPATH/src/github.com/igorskh/flatbuffers-zmq-tutorial`. Generally any path in `$GOPATH/src` is fine.
