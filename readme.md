@@ -45,3 +45,50 @@ In the project folder create two subfolders for writer and reader:
 mkdir reader
 mkdir wirte
 ```
+
+## Usage 
+### File Read/Write
+Write to file (default path: `data/data.dat`):
+```bash
+go run writer/main.go -f=true
+# Wrote 128 byte(s) to file
+```
+
+Read from file:
+```bash
+go run reader/main.go -f=true
+```
+Result should be the following:
+```text
+Got request:  do something
+Calc axis:  0
+Values:  20
+[0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19]
+Calculating Mean
+Result:  9.5
+```
+
+### ZeroMQ Sockets
+```bash
+# start router:
+go run reader/main.go
+# 2020/02/10 14:32:06 router created and bound
+```
+
+Run dealer:
+```bash
+go run writer/main.go
+# 2020/02/10 14:35:43 dealer created and connected
+# 2020/02/10 14:35:43 dealer sent message
+```
+
+Router outputs:
+```text
+2020/02/10 14:36:11 router received from '[0 132 127 38 95]' 
+Got request:  do something
+Calc axis:  0
+Values:  5
+[0 1 2 3 4]
+Calculating Mean
+Result:  2
+```
