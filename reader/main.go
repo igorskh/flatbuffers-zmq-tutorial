@@ -113,8 +113,8 @@ func zmqRouter(recvMany bool) {
 }
 
 func main() {
-	var path = flag.String("i", "data/data.dat", "path to save")
-	var fromFile = flag.Bool("f", false, "receive one")
+	var path = flag.String("i", "data/data.dat", "path to input file")
+	var fromFile = flag.Bool("f", false, "read from file")
 	var recvMany = flag.Bool("c", true, "continuous reading from zmq socket")
 	flag.Parse()
 
