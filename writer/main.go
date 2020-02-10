@@ -93,12 +93,5 @@ func main() {
 		writeBytes(buf, *path)
 		return
 	}
-	// dealer := goczmq.NewDealerChanneler("tcp://127.0.0.1:5555")
-	// defer dealer.Destroy()
-	// log.Println("dealer created and connected")
-
-	// dealer.SendChan <- [][]byte{buf}
-	// log.Println("dealer sent message")
-	// dealer.Destroy()
 	zeroMQDealer(buf)
 }
