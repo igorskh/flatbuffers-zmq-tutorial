@@ -79,7 +79,7 @@ func main() {
 	var n = flag.Int("n", 5, "number of elements")
 	var axis = flag.Int("a", 0, "axis 0 - X, 1 - Y, 2 - Z")
 	var toFile = flag.Bool("f", false, "save to file")
-	var path = flag.String("o", "data/data.dat", "path to save")
+	var path = flag.String("o", "data/data.dat", "path to output file")
 	var desc = flag.String("d", "do something", "description")
 	var action = flag.String("t", "mean", "type of action (sum, mean, median)")
 	var bufSize = flag.Int("s", 1024, "buffer size")
