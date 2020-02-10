@@ -4,9 +4,11 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"sort"
 
 	mycalc "github.com/igorskh/flatbuffers-zmq-tutorial/MyCalc"
+	"gopkg.in/zeromq/goczmq.v4"
 )
 
 func sortedValues(dat *mycalc.RawData) []float64 {
@@ -88,13 +90,41 @@ func readObject(dat []byte) {
 	fmt.Println("Result: ", res)
 }
 
+func zmqRouter(recvMany bool) {
+	router, err := goczmq.NewRouter("tcp://*:5555")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer router.Destroy()
+	log.Println("router created and bound")
+
+	for {
+		request, err := router.RecvMessage()
+		if err != nil {
+			log.Fatal(err)
+		}
+		log.Printf("router received from '%v'\n", request[0])
+		readObject(request[1])
+
+		if !recvMany {
+			break
+		}
+	}
+}
+
 func main() {
 	var path = flag.String("i", "data/data.dat", "path to save")
+	var fromFile = flag.Bool("f", false, "receive one")
+	var recvMany = flag.Bool("c", true, "continuous reading from zmq socket")
 	flag.Parse()
 
-	dat, err := ioutil.ReadFile(*path)
-	if err != nil {
-		panic(err)
+	if *fromFile {
+		dat, err := ioutil.ReadFile(*path)
+		if err != nil {
+			panic(err)
+		}
+		readObject(dat)
+		return
 	}
-	readObject(dat)
+	zmqRouter(*recvMany)
 }
