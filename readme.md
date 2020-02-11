@@ -87,14 +87,12 @@ go build -o ./bin/writer ./writer
 go build -o ./bin/reader ./reader
 ```
 
-* -f false bool - if true 
-
 Argument  | Description | Writer | Reader | Type | Default | Options
 --- | --- | --- | --- | ---  | --- | ---
 -f | Write/Read to/from file | v | v | bool | false | {true, false}
 -i | Path to input file, required only if `-f` is `true` |  | v | string | `data/data.dat` | 
 -c | Continuous read from socket, if false reads only the first message  |  | v | bool | false | {true, false}
--o | Path to output file, required only if `-f` is `true` |  | v | string | `data/data.dat` | 
+-o | Path to output file, required only if `-f` is `true` | v |  | string | `data/data.dat` | 
 -n | Amount of values to generate | v |  | integer | 5 | 
 -a | Axis for calculation over which the calculation is requested, 0 - X, 1 - Y, 2 - Z | v |  | integer | 5 | {0,1,2}
 -d | Description field | v |  | string | `do something` | 
