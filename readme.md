@@ -2,6 +2,8 @@
 
 This repository is based on [FlatBuffers official Tutorial](https://google.github.io/flatbuffers/flatbuffers_guide_tutorial.html).
 
+[Second part and implementation in C++](https://github.com/igorskh/flatbuffers-zmq-tutorial-cpp).
+
 ## Scenario
 
 This example performs the following:
