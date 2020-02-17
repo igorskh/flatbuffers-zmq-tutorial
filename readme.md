@@ -62,7 +62,7 @@ Follow the [instructions](https://zeromq.org/download/#linux).
 
 For Ubuntu:
 ```bash
-sudo apt apt-get install libzmq3-dev libczmq4 libczmq4-dev
+sudo ap install libzmq3-dev libczmq4 libczmq-dev
 go get gopkg.in/zeromq/goczmq.v4
 ```
 
